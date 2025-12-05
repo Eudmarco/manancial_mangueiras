@@ -4,8 +4,6 @@
   "version": "0.0.0",
   "type": "module",
   
-  "homepage": "https://eudmarco.github.io/manancial_mangueiras/",
-  
   "scripts": {
     "dev": "vite",
     "build": "vite build",

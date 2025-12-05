@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const keywords = [
@@ -8,7 +7,12 @@ const keywords = [
     "Conexões alta pressão",
     "Soluções hidráulicas",
     "Mangueiras de alta pressão",
-    "Conexões hidráulicas"
+    "Conexões hidráulicas",
+    "Mangueiras para o Agronegócio",
+    "Tubulação para Indústria Química",
+    "Conexões Sanitárias Farmacêuticas",
+    "Sistemas de Transferência de Fluidos",
+    "Mangueiras para Pulverização Agrícola"
 ];
 
 const Keywords: React.FC = () => {
@@ -29,3 +33,4 @@ const Keywords: React.FC = () => {
 };
 
 export default Keywords;
+

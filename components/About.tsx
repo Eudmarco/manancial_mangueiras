@@ -33,11 +33,12 @@ const About: React.FC = () => {
                         <video 
                             className="w-full h-full object-cover"
                             src="https://kjunynajewbtxqojxbok.supabase.co/storage/v1/object/public/Fotos%20Manancial%20Mangueiras/retro%20em%20movimento.mp4"
-                            poster="https://kjunynajewbtxqojxbok.supabase.co/storage/v1/object/public/Fotos%20Manancial%20Mangueiras/Tipos%20de%20mangueiras.webp"
+                            poster="https://kjunynajewbtxqojxbok.supabase.co/storage/v1/object/public/Fotos%20Manancial%20Mangueiras/Tipos%20de%20mangueiras.webp?w=600&q=60"
                             autoPlay 
                             loop 
                             muted 
                             playsInline
+                            preload="metadata"
                         />
                     </div>
                     <div className="text-left text-text-gray/90">

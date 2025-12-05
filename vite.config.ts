@@ -1,16 +1,15 @@
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// Define o nome do repositório como o caminho base
-const REPO_NAME = '/manancial_mangueiras/';
+// Removemos a definição REPO_NAME, pois não é necessária para domínio personalizado.
 
 export default defineConfig(({ mode }) => {
-    // Carrega variáveis de ambiente, buscando no diretório de trabalho atual (process.cwd())
+    // Carrega variáveis de ambiente
     const env = loadEnv(mode, process.cwd(), '');
 
     return {
-      // 1. CONFIGURAÇÃO BASE (CRUCIAL PARA GITHUB PAGES)
-      base: REPO_NAME,
+      // 1. CONFIGURAÇÃO BASE CORRIGIDA: Deve ser '/' para domínio personalizado
+      base: '/', 
       
       server: {
         port: 3000,

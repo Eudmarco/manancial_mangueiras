@@ -1,44 +1,44 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import Keywords from './components/Keywords';
-import About from './components/About';
-import Gallery from './components/Gallery';
-import Info from './components/Info';
-import Location from './components/Location';
-import Footer from './components/Footer';
 import WhatsappButton from './components/WhatsappButton';
 
-// O link de WhatsApp está bem formatado com a URL codificada.
-const WHATSAPP_LINK = "https://wa.me/556294808438?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento.";
+// Lazy load components that are below the fold
+const Keywords = lazy(() => import('./components/Keywords'));
+const About = lazy(() => import('./components/About'));
+const Gallery = lazy(() => import('./components/Gallery'));
+const Info = lazy(() => import('./components/Info'));
+const Location = lazy(() => import('./components/Location'));
+const Footer = lazy(() => import('./components/Footer'));
+
+
+const WHATSAPP_LINK = "https://wa.me/556232982131?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento.";
 
 function App() {
   return (
-    // CORREÇÃO: Altere 'text-text-gray' para uma classe válida do Tailwind, como 'text-gray-800'.
-    <div className="bg-white text-gray-800 font-lato"> 
-      <Header whatsappLink={WHATSAPP_LINK} />
-      <main>
-        <Hero whatsappLink={WHATSAPP_LINK} />
-        <Keywords />
-        <About />
-        <Gallery />
-        <Info />
-        <Location />
-      </main>
-      <Footer />
-      <WhatsappButton whatsappLink={WHATSAPP_LINK} />
-    </div>
+    <>
+      <title>Mangueiras e Conexões para Indústria, Agronegócio e Química | Manancial - Goiânia/GO</title>
+      <meta 
+        name="description" 
+        content="Soluções completas em mangueiras e conexões para os setores industrial, agrícola, farmacêutico e químico em Goiânia. Qualidade, durabilidade e atendimento especializado para garantir o desempenho e a segurança de seus equipamentos." 
+      />
+      <div className="bg-white text-text-gray font-lato">
+        <Header whatsappLink={WHATSAPP_LINK} />
+        <main>
+          <Hero whatsappLink={WHATSAPP_LINK} />
+          <Suspense fallback={null}>
+            <Keywords />
+            <About />
+            <Gallery />
+            <Info />
+            <Location />
+            <Footer />
+          </Suspense>
+        </main>
+        <WhatsappButton whatsappLink={WHATSAPP_LINK} />
+      </div>
+    </>
   );
 }
 
 export default App;
-
-/*
-   Lembrete: Para que o roteamento funcione no GitHub Pages,
-   certifique-se de que o componente BrowserRouter no seu 
-   arquivo principal (ex: main.jsx) use o basename:
-   
-   <BrowserRouter basename="/manancial_mangueiras">
-       <App />
-   </BrowserRouter>
-*/

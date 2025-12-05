@@ -43,7 +43,14 @@ const Header: React.FC<HeaderProps> = ({ whatsappLink }) => {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-20">
                     <a href="#visao-geral" onClick={(e) => handleLinkClick(e, '#visao-geral')} className="flex-shrink-0">
-                        <img className="h-12 w-auto" src="https://kjunynajewbtxqojxbok.supabase.co/storage/v1/object/public/Fotos%20Manancial%20Mangueiras/Manancial_20241023_144508_0000.png" alt="Manancial Logo" />
+                        <img 
+                            className="w-auto" 
+                            style={{ height: '4.5rem' }}
+                            src="https://kjunynajewbtxqojxbok.supabase.co/storage/v1/object/public/Fotos%20Manancial%20Mangueiras/Manancial_20241023_144508_0000.png?w=144&q=60&format=webp" 
+                            alt="Manancial Logo" 
+                            width="72" 
+                            height="72" 
+                        />
                     </a>
                     <nav className="hidden md:flex md:items-center md:space-x-8">
                         {navLinks.map((link) => (
