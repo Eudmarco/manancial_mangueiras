@@ -1,33 +1,26 @@
-import { defineConfig, loadEnv } from 'vite';
-import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite';
+import preact from '@preact/preset-vite';
 
-// Removemos a definição REPO_NAME, pois não é necessária para domínio personalizado.
-
-export default defineConfig(({ mode }) => {
-    // Carrega variáveis de ambiente
-    const env = loadEnv(mode, process.cwd(), '');
-
-    return {
-      // 1. CONFIGURAÇÃO BASE CORRIGIDA: Deve ser '/' para domínio personalizado
-      base: '/', 
-      
-      server: {
-        port: 3000,
-        host: '0.0.0.0',
-      },
-      plugins: [react()],
-      
-      // Define variáveis de ambiente no código do cliente
-      define: {
-        'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
-        'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)
-      },
-      
-      // Simplificado o alias '@' para apontar diretamente para a pasta 'src'
-      resolve: {
-        alias: {
-          '@': '/src',
-        }
-      }
-    };
+export default defineConfig({
+  // Domínio próprio no GitHub Pages: base na raiz.
+  base: '/',
+  // Sem fallback de SPA: caminhos inexistentes dão 404, como no GitHub Pages.
+  appType: 'mpa',
+  server: {
+    port: 3000,
+    host: '0.0.0.0',
+  },
+  // O código continua escrito em React; o preset troca `react`/`react-dom` por `preact/compat`
+  // no bundle (~3x menos JavaScript para baixar e hidratar).
+  plugins: [preact()],
+  resolve: {
+    alias: [
+      { find: /^react-dom\/client$/, replacement: 'preact/compat/client' },
+      { find: /^react-dom\/server$/, replacement: 'preact/compat/server' },
+    ],
+  },
+  // No build SSR, empacota os ícones para que também usem o alias do Preact (e não o React real).
+  ssr: {
+    noExternal: ['@heroicons/react'],
+  },
 });

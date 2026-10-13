@@ -1,0 +1,14 @@
+{
+  "name": "Manancial Mangueiras e Conexões",
+  "short_name": "Manancial",
+  "description": "Mangueiras e conexões hidráulicas e pneumáticas em Goiânia/GO.",
+  "lang": "pt-BR",
+  "start_url": "/",
+  "display": "minimal-ui",
+  "background_color": "#ffffff",
+  "theme_color": "#0066d6",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

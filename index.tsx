@@ -1,29 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
+import { registerAgentTools } from './webmcp';
+import './index.css';
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
   throw new Error("Could not find root element to mount to");
 }
 
-const root = ReactDOM.createRoot(rootElement);
-root.render(
+const app = (
   <React.StrictMode>
     <App />
   </React.StrictMode>
 );
 
-// Registra o Service Worker para habilitar o cache do lado do cliente
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js')
-      .then(registration => {
-        console.log('ServiceWorker registration successful with scope: ', registration.scope);
-      })
-      .catch(error => {
-        console.log('ServiceWorker registration failed: ', error);
-      });
-  });
+// No build o HTML já vem pré-renderizado (scripts/prerender.mjs); no `vite dev` o root só tem o marcador <!--app-html-->.
+if (rootElement.firstElementChild) {
+  ReactDOM.hydrateRoot(rootElement, app);
+} else {
+  ReactDOM.createRoot(rootElement).render(app);
 }
 
+registerAgentTools();

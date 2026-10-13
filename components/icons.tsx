@@ -49,9 +49,11 @@ export const BarcodeIcon: React.FC<IconProps> = (props) => (
     </svg>
 );
 
+// Losango no estilo de traço dos demais ícones (o path original renderizava como um círculo cheio).
 export const PixIcon: React.FC<IconProps> = (props) => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" {...props}>
-       <path d="M12.012 2.25c-5.38 0-9.762 4.382-9.762 9.762s4.382 9.762 9.762 9.762 9.762-4.382 9.762-9.762S17.392 2.25 12.012 2.25zm3.843 12.607l-3.21-3.208a.688.688 0 0 1 0-.974l3.818-3.818a.688.688 0 1 0-.974-.974l-3.818 3.818a2.065 2.065 0 0 0 0 2.92l3.21 3.209a.688.688 0 0 0 .973-.973zm-3.843.001l-1.077 1.076a.688.688 0 1 0 .973.974l1.076-1.077a2.065 2.065 0 0 0-2.92-2.92l-1.077-1.076-2.126 2.125 1.076 1.077a.688.688 0 0 0 .974.973zm-2.153-2.152l3.818-3.818a.688.688 0 0 0 0-.974l-1.076-1.076a2.065 2.065 0 0 0-2.92 0L8.604 9.06l2.126 2.125zm-2.435 2.437l-3.03 3.03a.688.688 0 1 0 .974.973l3.03-3.03a.688.688 0 0 0-.974-.973zm8.307-8.306l-3.818 3.818a.688.688 0 0 0 0 .974l2.392 2.392 3.818-3.818a.688.688 0 1 0-.973-.974l-2.393 2.392-2.392-2.392 3.818-3.818a.688.688 0 0 0-.974-.974z"/>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+        <path d="M12 2.5 21.5 12 12 21.5 2.5 12z" />
+        <path d="M12 8 16 12 12 16 8 12z" />
     </svg>
 );
 
